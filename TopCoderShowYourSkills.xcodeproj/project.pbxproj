@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B740193B1B9A5C3D0033B54F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B740193A1B9A5C3D0033B54F /* CoreLocation.framework */; };
 		B7E024201B98F1C00084A9DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E0241F1B98F1C00084A9DE /* AppDelegate.swift */; };
 		B7E024221B98F1C00084A9DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E024211B98F1C00084A9DE /* ViewController.swift */; };
 		B7E024251B98F1C00084A9DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7E024231B98F1C00084A9DE /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B740193A1B9A5C3D0033B54F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B7E0241A1B98F1BF0084A9DE /* TopCoderShowYourSkills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopCoderShowYourSkills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E0241E1B98F1C00084A9DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E0241F1B98F1C00084A9DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B740193B1B9A5C3D0033B54F /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +62,7 @@
 		B7E024111B98F1BF0084A9DE = {
 			isa = PBXGroup;
 			children = (
+				B740193A1B9A5C3D0033B54F /* CoreLocation.framework */,
 				B7E0241C1B98F1BF0084A9DE /* TopCoderShowYourSkills */,
 				B7E024321B98F1C00084A9DE /* TopCoderShowYourSkillsTests */,
 				B7E0241B1B98F1BF0084A9DE /* Products */,
@@ -411,6 +415,7 @@
 				B7E0243B1B98F1C00084A9DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B7E0243C1B98F1C00084A9DE /* Build configuration list for PBXNativeTarget "TopCoderShowYourSkillsTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				B7E0243E1B98F1C00084A9DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

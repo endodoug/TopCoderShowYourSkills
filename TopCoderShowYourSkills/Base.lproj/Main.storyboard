@@ -79,13 +79,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pO9-uk-RxO">
-                                <rect key="frame" x="271" y="481" width="42" height="21"/>
+                                <rect key="frame" x="271" y="481" width="313" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDK-vj-bmR">
-                                <rect key="frame" x="204" y="227" width="282" height="21"/>
+                                <rect key="frame" x="204" y="227" width="380" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -108,7 +108,8 @@
                         <outlet property="bodyTempatureSubmittedLabel" destination="3SH-n5-mSc" id="HRD-IJ-0x0"/>
                         <outlet property="bodyTempatureTextField" destination="Ubv-lQ-F9D" id="aAH-6t-GXQ"/>
                         <outlet property="dispositionTextField" destination="E8C-X4-xTn" id="97m-N7-SNL"/>
-                        <outlet property="locationLabel" destination="pO9-uk-RxO" id="iXR-Fp-i7f"/>
+                        <outlet property="locationLabel" destination="JDK-vj-bmR" id="5or-Qk-Nj0"/>
+                        <outlet property="locationSubmittedLabel" destination="pO9-uk-RxO" id="KJU-7Q-kwG"/>
                         <outlet property="submittedDispositionLabel" destination="7cm-4f-GG2" id="O0z-d4-xQu"/>
                     </connections>
                 </viewController>

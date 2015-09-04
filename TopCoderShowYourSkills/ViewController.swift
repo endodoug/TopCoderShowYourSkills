@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var bodyTempatureTextField: UITextField!
     @IBOutlet weak var dispositionTextField: UITextField!
@@ -16,6 +17,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bodyTempatureSubmittedLabel: UILabel!
     @IBOutlet weak var submittedDispositionLabel: UILabel!
+    @IBOutlet weak var locationSubmittedLabel: UILabel!
+    
+    let locationManager = CLLocationManager()
 
 
     override func viewDidLoad() {
@@ -24,7 +28,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         bodyTempatureTextField.delegate = self
         dispositionTextField.delegate = self
         
-        // Do any additional setup after loading the view, typically from a nib.
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -33,10 +41,42 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+            
+            if (error != nil)
+            {
+                println("Error: " + error.localizedDescription)
+                return
+            }
+            
+            if placemarks.count > 0
+            {
+                let pm = placemarks[0] as! CLPlacemark
+                self.displayLocationInfo(pm)
+            }
+            else
+            {
+                println("Error with the data.")
+            }
+        })
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Error: " + error.localizedDescription)
+    }
+    
+    func displayLocationInfo (placemark: CLPlacemark) {
+        
+        self.locationManager.stopUpdatingLocation()
+//        println(placemark.locality)
+//        println(placemark.postalCode)
+//        println(placemark.administrativeArea)
+//        println(placemark.country)
+        
+        locationLabel.text = "\(placemark.locality)" + " " + "\(placemark.administrativeArea) "
+        
     }
 
     @IBAction func submitButtonTapped(sender: UIButton) {
@@ -46,8 +86,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // reset text fields
         bodyTempatureTextField.text = ""
         dispositionTextField.text = ""
+        locationSubmittedLabel.text = locationLabel.text
     }
     
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
 }
 
