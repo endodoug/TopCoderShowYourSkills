@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bodyTempatureTextField: UITextField!
     @IBOutlet weak var dispositionTextField: UITextField!
@@ -20,7 +20,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bodyTempatureTextField.delegate = self
+        dispositionTextField.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        bodyTempatureTextField.resignFirstResponder()
+        dispositionTextField.resignFirstResponder()
+        
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +42,12 @@ class ViewController: UIViewController {
     @IBAction func submitButtonTapped(sender: UIButton) {
         bodyTempatureSubmittedLabel.text = bodyTempatureTextField.text
         submittedDispositionLabel.text = dispositionTextField.text
+        
+        // reset text fields
+        bodyTempatureTextField.text = ""
+        dispositionTextField.text = ""
     }
+    
 
 }
 
