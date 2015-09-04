@@ -9,6 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var bodyTempatureTextField: UITextField!
+    @IBOutlet weak var dispositionTextField: UITextField!
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var bodyTempatureSubmittedLabel: UILabel!
+    @IBOutlet weak var submittedDispositionLabel: UILabel!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +28,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func submitButtonTapped(sender: UIButton) {
+        bodyTempatureSubmittedLabel.text = bodyTempatureTextField.text
+        submittedDispositionLabel.text = dispositionTextField.text
+    }
 
 }
 
