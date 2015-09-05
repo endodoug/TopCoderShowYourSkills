@@ -36,9 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        bodyTempatureTextField.resignFirstResponder()
-        dispositionTextField.resignFirstResponder()
-        
+        removeKeyboard()
         return true
     }
     
@@ -87,9 +85,15 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         bodyTempatureTextField.text = ""
         dispositionTextField.text = ""
         locationSubmittedLabel.text = locationLabel.text
+        
+        removeKeyboard()
+        
     }
     
-    
+    func removeKeyboard () {
+        bodyTempatureTextField.resignFirstResponder()
+        dispositionTextField.resignFirstResponder()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
