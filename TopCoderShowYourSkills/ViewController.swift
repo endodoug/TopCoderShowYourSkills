@@ -78,8 +78,22 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
 
     @IBAction func submitButtonTapped(sender: UIButton) {
-        bodyTempatureSubmittedLabel.text = bodyTempatureTextField.text
+        
+        var tempature: Double = NSString(string: bodyTempatureTextField.text).doubleValue
+        if tempature == 0 {
+            println("please enter a number!")
+        } else {
+            bodyTempatureSubmittedLabel.text = "\(tempature)"
+        }
+        
+        
+        //bodyTempatureSubmittedLabel.text = bodyTempatureTextField.text
         submittedDispositionLabel.text = dispositionTextField.text
+        
+        // display submitted label
+        bodyTempatureSubmittedLabel.hidden = false
+        submittedDispositionLabel.hidden = false
+        locationSubmittedLabel.hidden = false
         
         // reset text fields
         bodyTempatureTextField.text = ""
