@@ -40,6 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         return true
     }
     
+    // MARK: Location methods
+    
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
             
@@ -68,50 +70,47 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     func displayLocationInfo (placemark: CLPlacemark) {
         
         self.locationManager.stopUpdatingLocation()
-//        println(placemark.locality)
-//        println(placemark.postalCode)
-//        println(placemark.administrativeArea)
-//        println(placemark.country)
+        println(placemark.locality)
+        println(placemark.postalCode)
+        println(placemark.administrativeArea)
+        println(placemark.country)
         
         locationLabel.text = "\(placemark.locality)" + " " + "\(placemark.administrativeArea) "
         
     }
+    
+    // MARK: Submit Button Tapped
 
     @IBAction func submitButtonTapped(sender: UIButton) {
         
         var tempature: Double = NSString(string: bodyTempatureTextField.text).doubleValue
         if tempature == 0 {
-            println("please enter a number!")
+            bodyTempatureSubmittedLabel.text = "Please enter a valid number."
         } else {
             bodyTempatureSubmittedLabel.text = "\(tempature)"
         }
-        
-        
-        //bodyTempatureSubmittedLabel.text = bodyTempatureTextField.text
+
         submittedDispositionLabel.text = dispositionTextField.text
+        locationSubmittedLabel.text = locationLabel.text
         
         // display submitted label
         bodyTempatureSubmittedLabel.hidden = false
         submittedDispositionLabel.hidden = false
         locationSubmittedLabel.hidden = false
         
-        // reset text fields
-        bodyTempatureTextField.text = ""
-        dispositionTextField.text = ""
-        locationSubmittedLabel.text = locationLabel.text
-        
         removeKeyboard()
-        
     }
+    
+    // MARK: hide keyboard
     
     func removeKeyboard () {
         bodyTempatureTextField.resignFirstResponder()
         dispositionTextField.resignFirstResponder()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        bodyTempatureTextField.endEditing(true)
+        dispositionTextField.endEditing(true)
     }
 
 }
